@@ -1,9 +1,13 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
+
 import javax.swing.*;
 
 public class Formulario extends JFrame {
 
-	private JLabel lbnumero1 ;
-	private JLabel lbnumero2 ;
+	private JLabel lbnumero1;
+	private JLabel lbnumero2;
 	private JTextField txNumero1;
 	private JTextField txNumero2;
 	private JButton btBotaoMais;
@@ -29,25 +33,53 @@ public class Formulario extends JFrame {
 
 		btBotaoMais = new JButton();
 		btBotaoMais.setText("+");
-		btBotaoMais.setBounds(405, 160, 50, 35);
+		btBotaoMais.setBounds(200, 300, 50, 35);
+		
+		btBotaoMais.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				double n1 = Double.parseDouble(txNumero1.getText()), n2 = Double.parseDouble(txNumero2.getText());
+				JOptionPane.showMessageDialog(null, contaMais(n1, n2));
+			}
+		});
+		
 		add(btBotaoMais);
 		
 		btBotaoMenos = new JButton();
 		btBotaoMenos.setText("-");
-		btBotaoMenos.setBounds(405, 200, 50, 35);
+		btBotaoMenos.setBounds(280, 300, 50, 35);
+		
+		btBotaoMenos.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				double n1 = Double.parseDouble(txNumero1.getText()), n2 = Double.parseDouble(txNumero2.getText());
+				JOptionPane.showMessageDialog(null, contaMenos(n1, n2));
+			}
+		});
+		
 		add(btBotaoMenos);
 		
 		
 		lbnumero2 = new JLabel();
 		lbnumero2.setText("Numero 2: ");
-		lbnumero2.setBounds(480, 180, 100, 35);
+		lbnumero2.setBounds(200, 220, 100, 35);
 		add(lbnumero2);
 		
 		txNumero2 = new JTextField();
-		txNumero2.setBounds(560, 180, 100, 35);
+		txNumero2.setBounds(280, 220, 100, 35);
 		add(txNumero2);
 		
-				
 		setVisible(true);
 	}
+	
+	public double contaMais(double numero1, double numero2) {
+		return numero1 + numero2;
+	}
+	
+	public double contaMenos(double numero1, double numero2) {
+		return numero1 - numero2;
+	}
+	
 }
