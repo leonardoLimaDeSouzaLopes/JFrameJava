@@ -1,2 +1,2 @@
 # JFrameJava
-Testes com JFrame
+As Lições de JFrame da Etec
