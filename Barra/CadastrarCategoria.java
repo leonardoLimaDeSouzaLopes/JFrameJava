@@ -15,11 +15,11 @@ public class CadastrarCategoria extends JFrame {
 		//Obs: Ainda falta arrumar a posicao
 	    lbCategoria = new JLabel();
 	    lbCategoria.setText("Categoria: ");
-	    lbCategoria.setBounds(300, 180, 100, 35);
+	    lbCategoria.setBounds(200, 180, 100, 35);
 		add(lbCategoria);
 		
 		txCategoria = new JTextField();
-		txCategoria.setBounds(280, 180, 40, 20);
+		txCategoria.setBounds(280, 180, 100, 35);
 		add(txCategoria);
 		
 		btCadastrarCategoria = new JButton();
