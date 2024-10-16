@@ -56,21 +56,44 @@ public class Menu extends JFrame{
     	
     	//Cria o item categoria
     	JMenuItem categoria = new JMenuItem("Categoria");
+    	categoria.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent evento) {
+    			CadastrarCategoria categoria = new CadastrarCategoria();
+    			categoria.setVisible(true);
+    		}
+    	} );
     	
     	cadastrar.add(categoria);
     	
     	//Cria o item Produto
     	JMenuItem produto = new JMenuItem("Produto");
-    	
+    	produto.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent evento) {
+    			CadastrarProduto produto = new CadastrarProduto();
+    			produto.setVisible(true);
+    		} 
+    	} );
     	cadastrar.add(produto);
     	
     	//Cria o item cliente
     	JMenuItem cliente = new JMenuItem("Cliente");
+    	cliente.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent evento) {
+    			CadastrarCliente cliente = new CadastrarCliente();
+    			cliente.setVisible(true);
+    		} 
+    	} );
     	
     	cadastrar.add(cliente);
     	
     	//Cria o item pedidos
     	JMenuItem pedido = new JMenuItem("Pedido");
+    	pedido.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent evento) {
+    			CadastrarPedido pedido = new CadastrarPedido();
+    			pedido.setVisible(true);
+    		} 
+    	} );
     	
     	cadastrar.add(pedido);
     	
@@ -81,10 +104,14 @@ public class Menu extends JFrame{
     	
     	//Cria o item categoria
     	JMenuItem sobre = new JMenuItem("Sobre");
+    	sobre.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent evento) {
+    			telaSobre sobre = new telaSobre();
+    			sobre.setVisible(true);
+    		}
+    	} );
     	
     	ajuda.add(sobre);
-
-    	
     	
        
     	this.setVisible(true);
