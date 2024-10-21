@@ -1,29 +1,50 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
 
 import javax.swing.*;
 
 public class CadastrarCategoria extends JFrame {
-	private JLabel  lbCategoria;
+
+	private JLabel lbCategoria;
 	private JTextField txCategoria;
 	private JButton btCadastrarCategoria;
 
-	public CadastrarCategoria() {		
-		this.setTitle("Cadastrar Categoria");
-	    this.setSize(900,600);  
+	public CadastrarCategoria() {
+
+		setTitle("Cadastrar Categoria");
+		setSize(900, 600);
 	    this.setResizable(false);
-	    this.setLocationRelativeTo(null);		
-	    
-		//Obs: Ainda falta arrumar a posicao
-	    lbCategoria = new JLabel();
-	    lbCategoria.setText("Categoria: ");
-	    lbCategoria.setBounds(200, 180, 100, 35);
+		setLayout(null);
+		setLocationRelativeTo(null);
+
+		lbCategoria = new JLabel();
+		lbCategoria.setText("Categoria: ");
+		lbCategoria.setBounds(415, 220, 70, 15);
 		add(lbCategoria);
-		
+
 		txCategoria = new JTextField();
-		txCategoria.setBounds(280, 180, 100, 35);
+		txCategoria.setBounds(350, 260, 200, 35);
 		add(txCategoria);
-		
+
 		btCadastrarCategoria = new JButton();
-		btCadastrarCategoria.setText("Cadastar");
-		btCadastrarCategoria.setBounds(200, 300, 50, 35);
+		btCadastrarCategoria.setText("Cadastrar");
+		btCadastrarCategoria.setBounds(400, 325, 100, 35);
+
+		btCadastrarCategoria.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+
+				String categoria = txCategoria.getText();
+
+				JOptionPane.showMessageDialog(null, cadastrarCategoria(categoria) ? "Categoria " + categoria + " Cadastrada Com Sucesso" : "Categoria " + categoria + " Nao Cadastrada Com Sucesso");
+			}
+		});
+
+		add(btCadastrarCategoria);
+	}
+
+	public boolean cadastrarCategoria(String categoria) {
+		return true;
 	}
 }
