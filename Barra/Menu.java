@@ -23,7 +23,15 @@ public class Menu extends JFrame{
     	
     	//Cria a opcao de novo arquivo
     	JMenuItem novo = new JMenuItem("Novo");
-    	
+    	novo.addActionListener(new ActionListener() {
+	    	
+    			public void actionPerformed(ActionEvent e) {
+    				new Menu();
+
+    			}
+	    	
+    		});
+
     	arquivo.add(novo);
     	
     	//Cria o item Salvar
