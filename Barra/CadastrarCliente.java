@@ -56,7 +56,7 @@ public class CadastrarCliente extends JFrame {
 		// Data Nascimento
 		lbDataNascCliente = new JLabel();
 		lbDataNascCliente.setText("Data de Nascimento: (DD MM AAAA)");
-		lbDataNascCliente.setBounds(300, 161, 300, 15);
+		lbDataNascCliente.setBounds(300, 165, 300, 15);
 		add(lbDataNascCliente);
 
 		txDiaNascCliente = new JTextField();
@@ -78,39 +78,39 @@ public class CadastrarCliente extends JFrame {
 		add(lbCpfCliente);
 
 		txCpfCliente = new JTextField();
-		txCpfCliente.setBounds(300, 255, 300, 35);
+		txCpfCliente.setBounds(300, 245, 300, 35);
 		add(txCpfCliente);
 
 		// Sexo
 		lbSexoCliente = new JLabel();
 		lbSexoCliente.setText("Sexo: ");
-		lbSexoCliente.setBounds(300, 305, 300, 15);
+		lbSexoCliente.setBounds(300, 295, 300, 15);
 		add(lbSexoCliente);
 
 		btgSexoCliente = new ButtonGroup(); // Cria o grupo dos RadiButtons
 
 		rdHomem = new JRadioButton(); // RadioButton
 		rdHomem.setText("Homem");
-		rdHomem.setBounds(300, 330, 80, 15);
+		rdHomem.setBounds(300, 320, 80, 15);
 		add(rdHomem);
 		btgSexoCliente.add(rdHomem);
 
 		rdMulher = new JRadioButton(); // RadioButton
 		rdMulher.setText("Mulher");
-		rdMulher.setBounds(380, 330, 80, 15);
+		rdMulher.setBounds(380, 320, 80, 15);
 		add(rdMulher);
 		btgSexoCliente.add(rdMulher);
 
 		rdOutro = new JRadioButton(); // RadioButton
 		rdOutro.setText("Outro");
-		rdOutro.setBounds(460, 330, 80, 15);
+		rdOutro.setBounds(460, 320, 80, 15);
 		add(rdOutro);
 		btgSexoCliente.add(rdOutro);
 
 		// Endereco
 		lbEnderecoCliente = new JLabel();
 		lbEnderecoCliente.setText("Endereco: ");
-		lbEnderecoCliente.setBounds(400, 360, 100, 15);
+		lbEnderecoCliente.setBounds(400, 350, 100, 15);
 		add(lbEnderecoCliente);
 
 		lbLogrCliente = new JLabel();

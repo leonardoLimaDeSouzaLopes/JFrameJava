@@ -1,4 +1,3 @@
-package Loljinha;
 
 import java.awt.event.*;
 import javax.swing.*;
