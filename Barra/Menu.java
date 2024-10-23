@@ -1,6 +1,9 @@
+package Loljinha;
+
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+
 
 public class Menu extends JFrame{
  
@@ -23,19 +26,23 @@ public class Menu extends JFrame{
     	
     	//Cria a opcao de novo arquivo
     	JMenuItem novo = new JMenuItem("Novo");
+    	// Cria uma nova Janela
     	novo.addActionListener(new ActionListener() {
-	    	
-    			public void actionPerformed(ActionEvent e) {
-    				new Menu();
-
-    			}
-	    	
-    		});
-
+    		public void actionPerformed(ActionEvent e) {
+    			new Menu();
+    		}
+    	});
+    	
     	arquivo.add(novo);
     	
     	//Cria o item Salvar
     	JMenuItem salvar = new JMenuItem("Salvar");
+    	//Cria um arquivo
+    	salvar.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+    			//Insirir aqui a funcao criar arquivo
+    		}
+    	});
     	
     	arquivo.add(salvar);
     	
@@ -46,6 +53,11 @@ public class Menu extends JFrame{
     	
     	//Cria o Item Carregar
     	JMenuItem carregar = new JMenuItem("Carregar");
+    	carregar.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) {
+ 
+    		}
+    	});
     	
     	arquivo.add(carregar);
     	
