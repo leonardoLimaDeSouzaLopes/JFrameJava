@@ -1,15 +1,14 @@
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.*;
-public class telaSobre extends JFrame {
+public class TelaSobre extends JFrame {
 	
 	private JButton btsobre;
 	
-	public telaSobre() {		
-		this.setTitle("Cadastrar Produto");
+	public TelaSobre() {		
+		this.setTitle("Sobre");
 	    this.setSize(900,600);  
 	    this.setResizable(false);
 	    this.setLocationRelativeTo(null);		
