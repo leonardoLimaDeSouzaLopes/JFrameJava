@@ -1,7 +1,7 @@
 import java.io.*;
 import javax.swing.JOptionPane;
 
-public class salvarArquivo extends Menu {
+public class SalvarArquivo extends Menu {
 	
 	public void salvarArquivo() {
 		
