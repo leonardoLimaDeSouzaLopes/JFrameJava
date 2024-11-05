@@ -17,18 +17,27 @@ CREATE TABLE tbCliente (
     , numLogradouroCliente INT
     , bairroCliente VARCHAR (60)
     , cidadeCliente VARCHAR (58)
-)
+);
 
-CREATE TABLE Produto (
+CREATE TABLE tbProduto (
     idProduto INT PRIMARY KEY AUTO_INCREMENT
-    , nomePedido VARCHAR (60)
-    , precoPedido MONEY
-    ,  idCategoria INT FOREIGN KEY REFERENCES tbCategoria(idCategoria)
-)
+    , nomeProduto VARCHAR (60)
+    , valorProduto MONEY
+    , idCategoria INT FOREIGN KEY REFERENCES tbCategoria(idCategoria)
+);
 
-CREATE
-
-CREATE TABLE Pedido (
+CREATE TABLE tbPedido (
     idPedido INT PRIMARY KEY AUTO_INCREMENT
-    , 
-)
+    , valorPedido MONEY
+    , dataPedido DATETIME
+    , idCliente INT FOREIGN KEY REFERENCES tbCliente(idCliente)
+    , statusPedido VARCHAR (40)
+);
+
+CREATE TABLE tbCarrinho (
+    idCarrinho INT PRIMARY KEY AUTO_INCREMENT
+    , idProduto INT FOREIGN KEY REFERENCES tbProduto(idProduto)
+    , idPedido INT FOREIGN KEY REFERENCES tbPedido(idPedido)
+);
+
+
