@@ -1,6 +1,6 @@
-CREATE DATABASE bdTeste
+CREATE DATABASE bdTeste;
 
-USE bdTeste
+USE bdTeste;
 
 CREATE TABLE tbProduto (
     idProduto INT PRIMARY KEY AUTO_INCREMENT
