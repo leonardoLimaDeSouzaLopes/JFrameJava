@@ -22,15 +22,15 @@ CREATE TABLE tbCliente (
 CREATE TABLE tbProduto (
     idProduto INT PRIMARY KEY AUTO_INCREMENT
     , nomeProduto VARCHAR (60)
-    , valorProduto MONEY
+    , valorProduto FLOAT
     , idCategoria INT , FOREIGN KEY (idCategoria) REFERENCES tbCategoria(idCategoria)
 );
 
 CREATE TABLE tbPedido (
     idPedido INT PRIMARY KEY AUTO_INCREMENT
-    , valorPedido MONEY
+    , valorPedido FLOAT
     , dataPedido DATETIME
-    , idCliente INT , FOREIGN (idCategoria) KEY REFERENCES tbCliente(idCliente)
+    , idCliente INT , FOREIGN KEY (idCategoria) REFERENCES tbCliente(idCliente)
     , statusPedido VARCHAR (40)
 );
 
