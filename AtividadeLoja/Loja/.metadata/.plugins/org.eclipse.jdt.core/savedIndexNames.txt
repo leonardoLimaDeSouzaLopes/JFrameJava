@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+C:\Users\triag\Progamação\projeto-escolar\2° Ano\JAVA\Interface-grafica\Loja\.metadata\.plugins\org.eclipse.jdt.core
+3624757343.index
+3620679662.index
+636862956.index
+926846591.index
+1865797976.index
