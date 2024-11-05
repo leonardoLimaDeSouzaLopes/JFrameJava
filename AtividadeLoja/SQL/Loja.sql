@@ -10,7 +10,7 @@ CREATE TABLE tbCategoria (
 CREATE TABLE tbCliente (
     idCliente INT PRIMARY KEY AUTO_INCREMENT
     , nomeCliente VARCHAR (60)
-    , datanascCliente DATA
+    , datanascCliente DATE
     , cpfCliente CHAR (11)
     , sexoCliente INT
     , logradouroCliente VARCHAR (40)
@@ -23,21 +23,21 @@ CREATE TABLE tbProduto (
     idProduto INT PRIMARY KEY AUTO_INCREMENT
     , nomeProduto VARCHAR (60)
     , valorProduto MONEY
-    , idCategoria INT FOREIGN KEY REFERENCES tbCategoria(idCategoria)
+    , idCategoria INT , FOREIGN KEY (idCategoria) REFERENCES tbCategoria(idCategoria)
 );
 
 CREATE TABLE tbPedido (
     idPedido INT PRIMARY KEY AUTO_INCREMENT
     , valorPedido MONEY
     , dataPedido DATETIME
-    , idCliente INT FOREIGN KEY REFERENCES tbCliente(idCliente)
+    , idCliente INT , FOREIGN (idCategoria) KEY REFERENCES tbCliente(idCliente)
     , statusPedido VARCHAR (40)
 );
 
 CREATE TABLE tbCarrinho (
     idCarrinho INT PRIMARY KEY AUTO_INCREMENT
-    , idProduto INT FOREIGN KEY REFERENCES tbProduto(idProduto)
-    , idPedido INT FOREIGN KEY REFERENCES tbPedido(idPedido)
+    , idProduto INT , FOREIGN KEY (idProduto) REFERENCES tbProduto(idProduto)
+    , idPedido INT , FOREIGN KEY (idProduto) REFERENCES tbPedido(idPedido)
 );
 
 

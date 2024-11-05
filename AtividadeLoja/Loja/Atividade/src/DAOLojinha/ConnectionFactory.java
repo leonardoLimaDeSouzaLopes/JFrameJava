@@ -10,11 +10,13 @@ public class ConnectionFactory {
 	public Connection getConnection() {
 		
 		try {
-			return DriverManager.getConnection("jdbc:mysql://localhost/x" ,"root",""); //url de conecxao, bd , usuario e senha ; jdbc = java database connection
+			return DriverManager.getConnection("jdbc:mysql://localhost/bdLojinha" ,"root",""); //url de conecxao, bd , usuario e senha ; jdbc = java database connection
 		}
 		
 		catch(SQLException e) { //Caso de algum erro acontecer
 			throw new RuntimeException();
 		}
 	}
+	 
+	
 }
