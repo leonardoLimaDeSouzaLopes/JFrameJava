@@ -13,14 +13,14 @@ public class CategoriaDAO {
 		this.connection = new ConnectionFactory().getConnection(); // Cada vez que criar uma instancia, ira conectar com o banco de dados
 	}
 	
-	public void adicionarCategoria(ModelarCategoria nomeCategoria) throws SQLException {
+	public void adicionarCategoria(ModelarCategoria Categoria) throws SQLException {
 		try {
 			
 			String tbCategoria = "insert into tbCategoria (nomeCategoria) values (?)";
 			
 			PreparedStatement stmt = connection.prepareStatement (tbCategoria); //preparando parar executar o codigo
 			
-			stmt.setString(1, nomeCategoria.getNomeCategoria());
+			stmt.setString(1, Categoria.getNomeCategoria());
 			
 			stmt.execute();
 			stmt.close();
