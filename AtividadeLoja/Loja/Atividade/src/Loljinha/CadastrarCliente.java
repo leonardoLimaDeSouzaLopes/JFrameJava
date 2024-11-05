@@ -183,18 +183,18 @@ public class CadastrarCliente extends JFrame {
 						
 					}
 
-					char sexo;
+					int sexo;
 
 					if (rdHomem.isSelected()) {  //Ve qual o sexo do cliente
 
-						sexo = 'M';
+						sexo = 1;
 
 					} else if (rdMulher.isSelected()) {
 
-						sexo = 'F';
+						sexo = 2;
 						
 					} else if (rdOutro.isSelected()) {
-						sexo = 'O';
+						sexo = 3;
 						
 					} else { // Se o sexo nao foi colocado nao cadastra o cliente
 						
@@ -240,7 +240,7 @@ public class CadastrarCliente extends JFrame {
 		add(btCadastrarCliente);
 	}
 
-	public boolean cadastrarCliente(String nome, int diaNasc, int mesNasc, int AnoNasc, String cpf, char sexo,
+	public boolean cadastrarCliente(String nome, int diaNasc, int mesNasc, int AnoNasc, String cpf, int sexo,
 			String logradouro, int numLogr, String bairro, String cidade) {  // Supostamente cadastra o cliente mas nao faz nada ainda
 		return true;
 	}
