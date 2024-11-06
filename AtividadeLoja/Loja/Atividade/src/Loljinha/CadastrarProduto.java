@@ -2,7 +2,15 @@ package Loljinha;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.swing.*;
+
+import DAOLojinha.CategoriaDAO;
+import ModelLojinha.ModelarCategoria;
 
 public class CadastrarProduto extends JFrame {
 	private JLabel lbNomeProduto;
@@ -13,7 +21,7 @@ public class CadastrarProduto extends JFrame {
 	private JComboBox cbCategoriaProduto;
 	private JButton btCadastrarProduto;
 
-	public CadastrarProduto() {
+	public CadastrarProduto() throws SQLException {
 
 		this.setTitle("Cadastrar Produto");
 		this.setSize(900, 600);
@@ -47,15 +55,15 @@ public class CadastrarProduto extends JFrame {
 		lbCategoriaProduto.setBounds(300, 280, 300, 15);
 		add(lbCategoriaProduto);
 
-		Object[][] categorias = new Object[2][2]; //Cria uma matrix que é a combo box
-		//linha 1
-		categorias[0][0] = 0;
-		categorias[1][0] = "Teste";
-		//linha 2
-		categorias[0][1] = 1;
-		categorias[1][1] = "Lol";
+		List<ModelarCategoria> categorias = new CategoriaDAO().getLista(); //Cria a lista das categorias
 		
-		cbCategoriaProduto = new JComboBox(categorias[1]); //Cria uma combobox com os nomes da matrix
+		String[] nomesCategorias = new String[categorias.size()]; //Cria o vetor de nomes das categorias
+		
+		for (int i = 0; i < categorias.size(); i++) { //Coloca os nomes no vetor de nomes das categorias
+			nomesCategorias[i] = categorias.get(i).getNomeCategoria();
+		}
+		
+		cbCategoriaProduto = new JComboBox(nomesCategorias); //Cria uma combobox com os nomes do vetor
 		cbCategoriaProduto.setBounds(300, 295, 300, 35);
 		add(cbCategoriaProduto);
 
@@ -81,7 +89,7 @@ public class CadastrarProduto extends JFrame {
 
 					double preco = Double.parseDouble(txPrecoProduto.getText()); // Le o Preco
 
-					int idCategoria = (int) categorias[0][cbCategoriaProduto.getSelectedIndex()]; // Le a Categoria
+					int idCategoria = (int) categorias.get(cbCategoriaProduto.getSelectedIndex()).getIdCategoria(); // Le a Categoria
 
 					JOptionPane.showMessageDialog(null, cadastrarProduto(nome, preco, idCategoria) ? "Produto " + nome + " Cadastrada Com Sucesso"
 											: "Produto " + nome + " Nao Cadastrada Com Sucesso"); // cadastra o Produto
