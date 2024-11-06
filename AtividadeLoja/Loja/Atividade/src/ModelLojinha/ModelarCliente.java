@@ -5,7 +5,7 @@ public class ModelarCliente {
 	private int idCliente;
 	private String nomeCliente;
 	private String datanascCliente;
-	private int cpfCliente;
+	private String cpfCliente;
 	private String sexoCliente;
 	private String logradouroCliente;
 	private int numLogradouroCliente;
@@ -29,10 +29,10 @@ public class ModelarCliente {
 	public void setDatanascCliente(String datanascCliente) {
 		this.datanascCliente = datanascCliente;
 	}
-	public int getCpfCliente() {
+	public String getCpfCliente() {
 		return cpfCliente;
 	}
-	public void setCpfCliente(int cpfCliente) {
+	public void setCpfCliente(String cpfCliente) {
 		this.cpfCliente = cpfCliente;
 	}
 	public String getSexoCliente() {
