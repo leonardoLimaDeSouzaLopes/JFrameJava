@@ -2,8 +2,13 @@ package Loljinha;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+
+import DAOLojinha.CategoriaDAO;
+import DAOLojinha.ClienteDAO;
+import ModelLojinha.ModelarCliente;
 
 public class CadastrarCliente extends JFrame {
 
@@ -36,6 +41,9 @@ public class CadastrarCliente extends JFrame {
 
 	private JButton btCadastrarCliente;
 
+	ModelarCliente cliente = new ModelarCliente();
+	ClienteDAO salvarCliente = new ClienteDAO();
+	
 	public CadastrarCliente() {
 
 		setTitle("Cadastrar Cliente");
@@ -156,31 +164,43 @@ public class CadastrarCliente extends JFrame {
 		btCadastrarCliente.setBounds(400, 635, 100, 35);
 
 		btCadastrarCliente.addActionListener(new ActionListener() {
-
+			
+			//Atribuindo os valores
 			public void actionPerformed(ActionEvent e) {
 
 				try { // Tenta fazer o codigo (se der erro ele manda pro catch)
 
 					String nome = txNomeCliente.getText(); //Le o nome
+					cliente.setNomeCliente(nome);
 					
 					if (nome.equals("")) { //Se o nome nao foi colocado nao cadastra o cliente
 						
 						JOptionPane.showMessageDialog(null, "Insira um Nome");
 						return;
 						
+					}else {
+						cliente.setNomeCliente(nome); // Atribuindo valor
 					}
 
 					int diaNasc = Integer.parseInt(txDiaNascCliente.getText()); //Le o dia, mes e ano de nascimento
 					int mesNasc = Integer.parseInt(txMesNascCliente.getText());
 					int anoNasc = Integer.parseInt(txAnoNascCliente.getText());
+					
+					LocalDate datanasc = LocalDate.of(diaNasc, mesNasc, anoNasc); // Une o dia com o mes, o mes com o ano
+					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/mmm/yyyy"); // Converte a data
+					
+					cliente.setDatanascCliente(datanasc.format(dtf)); 
 
 					String cpf = txCpfCliente.getText(); //Le o CPF
+					
 					
 					if (cpf.equals("")) { //Se o CPF nao foi colocado nao cadastra o cliente
 						
 						JOptionPane.showMessageDialog(null, "Insira um CPF");
 						return;
 						
+					}else {
+						cliente.setCpfCliente(cpf);
 					}
 
 					String sexo;
@@ -188,13 +208,19 @@ public class CadastrarCliente extends JFrame {
 					if (rdHomem.isSelected()) {  //Ve qual o sexo do cliente
 
 						sexo = "Nasculino";
+						
+						cliente.setSexoCliente(sexo);
 
 					} else if (rdMulher.isSelected()) {
 
 						sexo = "Feminino";
 						
+						cliente.setSexoCliente(sexo);
+						
 					} else if (rdOutro.isSelected()) {
 						sexo = "Outro";
+						
+						cliente.setSexoCliente(sexo);
 						
 					} else { // Se o sexo nao foi colocado nao cadastra o cliente
 						
@@ -212,19 +238,27 @@ public class CadastrarCliente extends JFrame {
 						JOptionPane.showMessageDialog(null, "Insira um Logradouro");
 						return;
 
+					}else {
+						cliente.setLogradouroCliente(logradouro);
 					}
 					if (bairro.equals("")) { //Se o bairro nao foi colocado nao cadastra o cliente
 
 						JOptionPane.showMessageDialog(null, "Insira um Bairro");
 						return;
 
+					}else {
+						cliente.setNumLogradouroCliente(numLogr);
 					}
 					if (cidade.equals("")) { // Se a cidade nao foi colocado nao cadastra o cliente
 
 						JOptionPane.showMessageDialog(null, "Insira um Cidade");
 						return;
 
+					}else {
+						cliente.setNomeCliente(cidade);
 					}
+					
+					salvarCliente.adicionarCategoria(cliente);
 					
 					JOptionPane.showMessageDialog(null,
 							cadastrarCliente(nome, diaNasc, mesNasc, anoNasc, cpf, sexo, logradouro, numLogr, bairro,
