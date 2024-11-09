@@ -22,8 +22,8 @@ CREATE TABLE tbCliente (
 CREATE TABLE tbTelefone (
     idTelefone INT PRIMARY KEY AUTO_INCREMENT
     , numTelefone VARCHAR (15)
-    , idCliente INT , FOREIGN KEY (idCliente) REFERENCEES tbCliente(idCliente)
-)
+    , idCliente INT , FOREIGN KEY (idCliente) REFERENCES tbCliente(idCliente)
+);
 
 CREATE TABLE tbEstoqueProduto ( 
     idEstoqueProduto INT PRIMARY KEY AUTO_INCREMENT
@@ -35,14 +35,14 @@ CREATE TABLE tbProduto (
     idProduto INT PRIMARY KEY AUTO_INCREMENT
     , nomeProduto VARCHAR (60)
     , precoProduto FLOAT
-    , idEstoqueProduto INT , FOREIGN KEY (idEstoqueProduto) REFERENCEES tbEstoqueProduto(idEstoqueProduto)
-)
+    , idEstoqueProduto INT , FOREIGN KEY (idEstoqueProduto) REFERENCES tbEstoqueProduto(idEstoqueProduto)
+);
 
 CREATE TABLE tbPedido (
     idPedido INT PRIMARY KEY AUTO_INCREMENT
     , valorPedido FLOAT
     , dataPedido DATETIME
-    , idCliente INT , FOREIGN KEY (idCategoria) REFERENCES tbCliente(idCliente)
+    , idCliente INT , FOREIGN KEY (idCliente) REFERENCES tbCliente(idCliente)
     , statusPedido VARCHAR (40)
 );
 
