@@ -39,6 +39,7 @@ public class CadastrarCliente extends JFrame {
 	private JLabel lbCidadeCliente;
 	private JTextField txCidadeCliente;
 
+	private JButton btTelefoneCliente;
 	private JButton btCadastrarCliente;
 
 	ModelarCliente cliente = new ModelarCliente();
@@ -157,11 +158,24 @@ public class CadastrarCliente extends JFrame {
 		txCidadeCliente = new JTextField();
 		txCidadeCliente.setBounds(300, 585, 300, 35);
 		add(txCidadeCliente);
-
+		
+		//Botao AdcionarTelefone
+		btTelefoneCliente = new JButton();
+		btTelefoneCliente.setText("Adicionar um Telefone");
+		btTelefoneCliente.setBounds(350, 635, 200 , 35);
+		add(btTelefoneCliente);
+		
+		btTelefoneCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evento) {
+				CadastrarTelefone novoTelefone = new CadastrarTelefone();
+				novoTelefone.setVisible(true);
+			}
+		});
+		
 		// Botao Cadastrar
 		btCadastrarCliente = new JButton();
 		btCadastrarCliente.setText("Cadastrar");
-		btCadastrarCliente.setBounds(400, 635, 100, 35);
+		btCadastrarCliente.setBounds(400, 690, 100, 35);
 
 		btCadastrarCliente.addActionListener(new ActionListener() {
 			
@@ -180,16 +194,18 @@ public class CadastrarCliente extends JFrame {
 						
 					}else {
 						cliente.setNomeCliente(nome); // Atribuindo valor
+						System.out.println(cliente.getNomeCliente());
 					}
 
 					int diaNasc = Integer.parseInt(txDiaNascCliente.getText()); //Le o dia, mes e ano de nascimento
 					int mesNasc = Integer.parseInt(txMesNascCliente.getText());
 					int anoNasc = Integer.parseInt(txAnoNascCliente.getText());
 					
-					LocalDate datanasc = LocalDate.of(diaNasc, mesNasc, anoNasc); // Une o dia com o mes, o mes com o ano
+					LocalDate datanasc = LocalDate.of(anoNasc, mesNasc , diaNasc); // Une o dia com o mes, o mes com o ano
 					DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/mmm/yyyy"); // Converte a data
 					
 					cliente.setDatanascCliente(datanasc.format(dtf)); 
+					System.out.println(cliente.getDatanascCliente());
 
 					String cpf = txCpfCliente.getText(); //Le o CPF
 					
@@ -201,6 +217,7 @@ public class CadastrarCliente extends JFrame {
 						
 					}else {
 						cliente.setCpfCliente(cpf);
+						System.out.println(cliente.getCpfCliente());
 					}
 
 					String sexo;
@@ -210,17 +227,20 @@ public class CadastrarCliente extends JFrame {
 						sexo = "Nasculino";
 						
 						cliente.setSexoCliente(sexo);
+						System.out.println(cliente.getSexoCliente());
 
 					} else if (rdMulher.isSelected()) {
 
 						sexo = "Feminino";
 						
 						cliente.setSexoCliente(sexo);
+						System.out.println(cliente.getSexoCliente());
 						
 					} else if (rdOutro.isSelected()) {
 						sexo = "Outro";
 						
 						cliente.setSexoCliente(sexo);
+						System.out.println(cliente.getSexoCliente());
 						
 					} else { // Se o sexo nao foi colocado nao cadastra o cliente
 						
@@ -240,6 +260,7 @@ public class CadastrarCliente extends JFrame {
 
 					}else {
 						cliente.setLogradouroCliente(logradouro);
+						System.out.println(cliente.getLogradouroCliente());
 					}
 					if (bairro.equals("")) { //Se o bairro nao foi colocado nao cadastra o cliente
 
@@ -248,6 +269,7 @@ public class CadastrarCliente extends JFrame {
 
 					}else {
 						cliente.setNumLogradouroCliente(numLogr);
+						System.out.println(cliente.getNumLogradouroCliente());
 					}
 					if (cidade.equals("")) { // Se a cidade nao foi colocado nao cadastra o cliente
 
@@ -256,6 +278,7 @@ public class CadastrarCliente extends JFrame {
 
 					}else {
 						cliente.setNomeCliente(cidade);
+						System.out.println(cliente.getCidadeCliente());
 					}
 					
 					salvarCliente.adicionarCategoria(cliente);
