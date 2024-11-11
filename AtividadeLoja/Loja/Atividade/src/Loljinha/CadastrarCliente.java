@@ -8,7 +8,9 @@ import java.time.format.DateTimeFormatter;
 
 import DAOLojinha.CategoriaDAO;
 import DAOLojinha.ClienteDAO;
+import DAOLojinha.TelefoneDAO;
 import ModelLojinha.ModelarCliente;
+import ModelLojinha.ModelarTelefone;
 
 public class CadastrarCliente extends JFrame {
 
@@ -44,6 +46,8 @@ public class CadastrarCliente extends JFrame {
 
 	ModelarCliente cliente = new ModelarCliente();
 	ClienteDAO salvarCliente = new ClienteDAO();
+	ModelarTelefone telefone = new ModelarTelefone();
+	TelefoneDAO salvarTelefone = new TelefoneDAO();
 	
 	public CadastrarCliente() {
 
@@ -282,6 +286,7 @@ public class CadastrarCliente extends JFrame {
 					}
 					
 					salvarCliente.adicionarCategoria(cliente);
+					salvarTelefone.adicionarTelefone(telefone, cliente);
 					
 					JOptionPane.showMessageDialog(null,
 							cadastrarCliente(nome, diaNasc, mesNasc, anoNasc, cpf, sexo, logradouro, numLogr, bairro,

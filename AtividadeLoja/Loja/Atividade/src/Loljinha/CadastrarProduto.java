@@ -17,6 +17,8 @@ public class CadastrarProduto extends JFrame {
 	private JTextField txNomeProduto;
 	private JLabel lbPrecoProduto;
 	private JTextField txPrecoProduto;
+	private JLabel lbQuantidadeProduto;
+	private JTextField txQuantidadeProduto;
 	private JLabel lbCategoriaProduto;
 	private JComboBox cbCategoriaProduto;
 	private JButton btCadastrarProduto;
@@ -48,11 +50,21 @@ public class CadastrarProduto extends JFrame {
 		txPrecoProduto = new JTextField();
 		txPrecoProduto.setBounds(300, 230, 300, 35);
 		add(txPrecoProduto);
+		
+		//	Quantidade
+		lbQuantidadeProduto = new JLabel();
+		lbQuantidadeProduto.setText("Quantidade ");
+		lbQuantidadeProduto.setBounds(300, 280, 300, 15);
+		add(lbQuantidadeProduto);
 
+		txQuantidadeProduto = new JTextField();
+		txQuantidadeProduto.setBounds(300, 295, 300, 35);
+		add(txQuantidadeProduto);
+		
 		// Categoria
 		lbCategoriaProduto = new JLabel();
 		lbCategoriaProduto.setText("Categoria: ");
-		lbCategoriaProduto.setBounds(300, 280, 300, 15);
+		lbCategoriaProduto.setBounds(300, 340, 300, 15);
 		add(lbCategoriaProduto);
 
 		List<ModelarCategoria> categorias = new CategoriaDAO().getLista(); //Cria a lista das categorias
@@ -64,13 +76,13 @@ public class CadastrarProduto extends JFrame {
 		}
 		
 		cbCategoriaProduto = new JComboBox(nomesCategorias); //Cria uma combobox com os nomes do vetor
-		cbCategoriaProduto.setBounds(300, 295, 300, 35);
+		cbCategoriaProduto.setBounds(300, 360, 300, 35);
 		add(cbCategoriaProduto);
 
 		// Botao Cadastrar
 		btCadastrarProduto = new JButton();
 		btCadastrarProduto.setText("Cadastrar");
-		btCadastrarProduto.setBounds(400, 345, 100, 35);
+		btCadastrarProduto.setBounds(400, 445, 100, 35);
 
 		btCadastrarProduto.addActionListener(new ActionListener() {
 

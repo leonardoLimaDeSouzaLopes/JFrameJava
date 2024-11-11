@@ -20,19 +20,19 @@ public class ClienteDAO {
 			PreparedStatement stmt = connection.prepareStatement (tbCliente); 
 			
 			stmt.setString(1, Cliente.getNomeCliente());
-			stmt.setString(1, Cliente.getDatanascCliente());
-			stmt.setString(1, Cliente.getCpfCliente());
-			stmt.setString(1, Cliente.getSexoCliente());
-			stmt.setString(1, Cliente.getLogradouroCliente());
-			stmt.setInt(1, Cliente.getNumLogradouroCliente());
-			stmt.setString(1, Cliente.getBairroCliente());
-			stmt.setString(1, Cliente.getCidadeCliente());
+			stmt.setString(1, Cliente.getDatanascCliente()); //Por favor Lima, arrumar aqui por favor!
+			stmt.setString(3, Cliente.getCpfCliente());
+			stmt.setString(4, Cliente.getSexoCliente());
+			stmt.setString(5, Cliente.getLogradouroCliente());
+			stmt.setInt(6, Cliente.getNumLogradouroCliente());
+			stmt.setString(7, Cliente.getBairroCliente());
+			stmt.setString(8, Cliente.getCidadeCliente());
 			
 			
 			stmt.execute();
 			stmt.close();
 			
-			System.out.println("Operacao concluida com exito!");
+			System.out.println("Operacao concluida com exito! Cliente" + Cliente.getNomeCliente() + " Cadastrado");
 		}
 		
 		catch(SQLException e) {
