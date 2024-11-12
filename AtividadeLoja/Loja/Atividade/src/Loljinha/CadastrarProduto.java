@@ -9,8 +9,11 @@ import java.util.List;
 
 import javax.swing.*;
 
-import DAOLojinha.CategoriaDAO;
+import ModelLojinha.ModelarProduto;
 import ModelLojinha.ModelarCategoria;
+import ModelLojinha.ModelarEstoque;
+import DAOLojinha.CategoriaDAO;
+import DAOLojinha.ProdutoDAO;
 
 public class CadastrarProduto extends JFrame {
 	private JLabel lbNomeProduto;
@@ -22,6 +25,13 @@ public class CadastrarProduto extends JFrame {
 	private JLabel lbCategoriaProduto;
 	private JComboBox cbCategoriaProduto;
 	private JButton btCadastrarProduto;
+	
+//	ModelarEstoque Estoque = new ModelarEstoque();
+	ModelarProduto Produto = new ModelarProduto();
+	ModelarCategoria categoria = new ModelarCategoria();
+	ProdutoDAO salvarProduto = new ProdutoDAO();
+	
+	
 
 	public CadastrarProduto() throws SQLException {
 
@@ -97,11 +107,23 @@ public class CadastrarProduto extends JFrame {
 						JOptionPane.showMessageDialog(null, "Insira um Nome");
 						return;
 
+					}else {
+//						Estoque.setNomeEstoqueProduto(nome); //Adiciona o nome do tipo produto
+						Produto.setNomeProduto(nome);
 					}
 
 					double preco = Double.parseDouble(txPrecoProduto.getText()); // Le o Preco
+					Produto.setValorProduto(preco);;
 
 					int idCategoria = (int) categorias.get(cbCategoriaProduto.getSelectedIndex()).getIdCategoria(); // Le a Categoria
+					categoria.setIdCategoria(idCategoria);
+					
+					int qtProduto = Integer.parseInt(txQuantidadeProduto.getText());
+//					Estoque.setQuantidadeEstoqueProduto(qtProduto);
+					Produto.setQuantidadeProduto(qtProduto);
+					salvarProduto.adicionarEstoque( Produto);
+					
+					
 
 					JOptionPane.showMessageDialog(null, cadastrarProduto(nome, preco, idCategoria) ? "Produto " + nome + " Cadastrada Com Sucesso"
 											: "Produto " + nome + " Nao Cadastrada Com Sucesso"); // cadastra o Produto
@@ -116,9 +138,8 @@ public class CadastrarProduto extends JFrame {
 
 		add(btCadastrarProduto);
 		
-		String nomeEstoque = txNomeProduto.getText();
-		Double valorEstoque = Double.parseDouble(txPrecoProduto.getText());
-		int qtProduto = Integer.parseInt(txQuantidadeProduto.getText());
+		
+		
 		
 		
 	}
