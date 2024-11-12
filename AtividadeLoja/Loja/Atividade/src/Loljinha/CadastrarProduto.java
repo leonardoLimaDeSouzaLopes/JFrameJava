@@ -115,6 +115,12 @@ public class CadastrarProduto extends JFrame {
 		});
 
 		add(btCadastrarProduto);
+		
+		String nomeEstoque = txNomeProduto.getText();
+		Double valorEstoque = Double.parseDouble(txPrecoProduto.getText());
+		int qtProduto = Integer.parseInt(txQuantidadeProduto.getText());
+		
+		
 	}
 	
 	public boolean cadastrarProduto(String nome, double preco, int idCategoria) {  // Supostamente cadastra o cliente mas nao faz nada ainda

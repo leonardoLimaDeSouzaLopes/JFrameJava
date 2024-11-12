@@ -44,7 +44,14 @@ public class CadastrarTelefone extends JFrame  {
 		btCadastrarTelefone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
 					String tl = txTelefone.getText();
-					Telefone.setTelefone(tl);
+					
+					if (tl.equals("")) {
+						JOptionPane.showMessageDialog(null, "Voce nao prencheu algum numero");
+					} else {
+						Telefone.setTelefone(tl);
+						JOptionPane.showMessageDialog(null, Telefone.getTelefone() + " Adicionado");
+					}
+					
 				
 			}
 		});
